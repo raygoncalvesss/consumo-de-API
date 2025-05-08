@@ -12,37 +12,47 @@ export default function FilmCard({ film }) {
       <Image source={{ uri: film.image }} style={styles.image} />
 
       {/* Bloco com as informações do filme */}
-      <View style={styles.name}>
+      <View style={styles.info}>
         {/* Título principal em inglês */}
         <Text style={styles.title}>
-          {film.name ?? "Título não disponível"}
+          {film.title ?? "Título não disponível"}
         </Text>
 
         {/* Título original em japonês */}
-        <Text style={styles.text}>
-         🏠 house: {film.house ?? "Título original não disponível"}
+        <Text style={styles.subtitle}>
+          {film.original_title ?? "Título original não disponível"}
         </Text>
 
         {/* Título romanizado (em alfabeto latino) */}
         <Text style={styles.subtitleSmall}>
-         👤 specie: {film.species ?? "Romanização não disponível"}
+          {film.original_title_romanised ?? "Romanização não disponível"}
         </Text>
 
         {/* Descrição da história */}
         <Text style={styles.text}>
-          📝 description: {film.ancestry ?? "Descrição não disponível"}
+          📝 {film.description ?? "Descrição não disponível"}
         </Text>
 
         {/* Diretor e produtor */}
         <Text style={styles.text}>
-          🎬 actor/actress: {film.actor ?? "Não informado"}
+          🎬 Diretor: {film.director ?? "Não informado"}
+        </Text>
+        <Text style={styles.text}>
+          👤 Produtor: {film.producer ?? "Não informado"}
         </Text>
 
         {/* Data de lançamento e duração */}
         <Text style={styles.text}>
-          📅 birthday: {film.dateOfBirth ?? "Não informado"}
+          📅 Lançamento: {film.release_date ?? "Não informado"}
+        </Text>
+        <Text style={styles.text}>
+          ⏱️ Duração: {film.running_time ?? "Não informado"} min
         </Text>
 
+        {/* Nota no Rotten Tomatoes */}
+        <Text style={styles.text}>
+          ⭐ Nota: {film.rt_score ?? "Não informado"}/100
+        </Text>
       </View>
     </View>
   );
@@ -90,8 +100,8 @@ const styles = StyleSheet.create({
   },
   subtitleSmall: {
     fontSize: 14,
-    color: "#e0e0e0",
+    color: "#bbbbbb",
     marginTop: 2,
-    fontStyle: "justify",
+    fontStyle: "italic",
   },
 });

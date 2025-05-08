@@ -28,7 +28,7 @@ export default function Home() {
     // Espera 5 segundos para simular o carregamento e mostrar o SkeletonCard
     setTimeout(() => {
       // Faz uma requisição GET na API do Studio Ghibli
-      axios.get("https://hp-api.onrender.com/api/characters")
+      axios.get("https://ghibliapi.vercel.app/films")
         .then((res) => setFilms(res.data)) // Se der certo, guarda os dados no estado "films"
         .catch((err) => console.error(err)) // Se der erro, mostra no console
         .finally(() => setLoading(false)); // Quando terminar, muda "loading" para false
@@ -40,7 +40,7 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
 
       {/* Título da tela */}
-      <Text style={styles.header}>🎥 Personagens Harry Potter </Text>
+      <Text style={styles.header}>🎥 Filmes Studio Ghibli</Text>
 
       {/* Se estiver carregando, mostra os Skeletons */}
       {loading ? (
